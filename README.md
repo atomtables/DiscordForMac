@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="/DiscordForMac/Assets.xcassets/AppIcon.appiconset/DiscordForMac-1024pt.png" alt="Discord For Mac logo">
+    <img src="/DiscordForMac/Assets.xcassets/AppIcon.appiconset/DiscordForMac-MAS.png" alt="Discord For Mac logo">
     <h1>DiscordForMac</h1>
 </p>
 
