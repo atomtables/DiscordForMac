@@ -68,6 +68,10 @@
 		33AC89A52BEEF91300BDC7E2 /* DFMChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC89A42BEEF91300BDC7E2 /* DFMChannel.swift */; };
 		33AC89A82BEEFEF300BDC7E2 /* DFMUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC89A72BEEFEF300BDC7E2 /* DFMUser.swift */; };
 		33AC89AA2BEFA5BD00BDC7E2 /* DFMChannelEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC89A92BEFA5BD00BDC7E2 /* DFMChannelEnums.swift */; };
+		33B967C32C18B6C000032CD9 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 33B967C22C18B6C000032CD9 /* KeychainAccess */; };
+		33B967C62C18B8A400032CD9 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B967C52C18B8A400032CD9 /* LaunchScreen.swift */; };
+		33B967C82C1A63E300032CD9 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B967C72C1A63DA00032CD9 /* VisualEffectView.swift */; };
+		33B967CA2C1A6A8400032CD9 /* DFMFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B967C92C1A6A8100032CD9 /* DFMFunctions.swift */; };
 		33D0C1302BFFD78800905F06 /* DFMMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D0C12F2BFFD78800905F06 /* DFMMessage.swift */; };
 		33EDDF282BF5ACC400FBE476 /* DFMGuildsUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EDDF272BF5ACC400FBE476 /* DFMGuildsUpdater.swift */; };
 /* End PBXBuildFile section */
@@ -138,6 +142,9 @@
 		33AC89A42BEEF91300BDC7E2 /* DFMChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DFMChannel.swift; path = DiscordForMac/API/Structures/Channels/DFMChannel.swift; sourceTree = SOURCE_ROOT; usesTabs = 0; };
 		33AC89A72BEEFEF300BDC7E2 /* DFMUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMUser.swift; sourceTree = "<group>"; };
 		33AC89A92BEFA5BD00BDC7E2 /* DFMChannelEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMChannelEnums.swift; sourceTree = "<group>"; };
+		33B967C52C18B8A400032CD9 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
+		33B967C72C1A63DA00032CD9 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
+		33B967C92C1A6A8100032CD9 /* DFMFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMFunctions.swift; sourceTree = "<group>"; };
 		33D0C12F2BFFD78800905F06 /* DFMMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMMessage.swift; sourceTree = "<group>"; };
 		33EDDF272BF5ACC400FBE476 /* DFMGuildsUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMGuildsUpdater.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33B967C32C18B6C000032CD9 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +180,7 @@
 				3379898D2BF654B60072F76B /* DFMChannelListView.swift */,
 				338BA1552BF7C83F0084ED05 /* DFMPrivateChannelView.swift */,
 				33AAD1282C0E7E7900DD888D /* DFMMessageView.swift */,
+				33B967C52C18B8A400032CD9 /* LaunchScreen.swift */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -377,6 +386,8 @@
 		33AC899A2BEE914200BDC7E2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				33B967C92C1A6A8100032CD9 /* DFMFunctions.swift */,
+				33B967C72C1A63DA00032CD9 /* VisualEffectView.swift */,
 				33AC899B2BEE916100BDC7E2 /* NSRegularExpression.swift */,
 				335F65522BF03CBD00582CC1 /* CaseIterableDefaultsLast.swift */,
 				335F655E2BF2CDC700582CC1 /* CodableExplicitNull.swift */,
@@ -482,6 +493,9 @@
 			dependencies = (
 			);
 			name = DiscordForMac;
+			packageProductDependencies = (
+				33B967C22C18B6C000032CD9 /* KeychainAccess */,
+			);
 			productName = DiscordForMac;
 			productReference = 33AC89792BED209100BDC7E2 /* DiscordForMac.app */;
 			productType = "com.apple.product-type.application";
@@ -510,6 +524,9 @@
 				Base,
 			);
 			mainGroup = 33AC89702BED209100BDC7E2;
+			packageReferences = (
+				33B967C12C18B6C000032CD9 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+			);
 			productRefGroup = 33AC897A2BED209100BDC7E2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -538,6 +555,7 @@
 			files = (
 				335F65482BF01B9500582CC1 /* DFMThreadMember.swift in Sources */,
 				33AC89932BEE737100BDC7E2 /* DFMImageCache.swift in Sources */,
+				33B967C82C1A63E300032CD9 /* VisualEffectView.swift in Sources */,
 				33AC897F2BED209100BDC7E2 /* ContentView.swift in Sources */,
 				33AAD1322C10969F00DD888D /* DFMGatewayServerMessage.swift in Sources */,
 				335F655C2BF100A300582CC1 /* DFMInformation.swift in Sources */,
@@ -586,6 +604,7 @@
 				335F656C2BF2DC8F00582CC1 /* DFMGatewayClientIdentify.swift in Sources */,
 				33AC89A82BEEFEF300BDC7E2 /* DFMUser.swift in Sources */,
 				335F65462BF008E700582CC1 /* DFMGuildMember.swift in Sources */,
+				33B967C62C18B8A400032CD9 /* LaunchScreen.swift in Sources */,
 				33AC897D2BED209100BDC7E2 /* DiscordForMacApp.swift in Sources */,
 				338BA14C2BF6CE490084ED05 /* DFMUserReferenceUpdater.swift in Sources */,
 				33AAD12B2C0F7DD700DD888D /* SendMessage.swift in Sources */,
@@ -595,6 +614,7 @@
 				335F65422BF003F300582CC1 /* DFMPermissionOverride.swift in Sources */,
 				33AC89A02BEEEAF300BDC7E2 /* GetDFMGuildsList.swift in Sources */,
 				335F65402BF0039A00582CC1 /* DFMChannelType.swift in Sources */,
+				33B967CA2C1A6A8400032CD9 /* DFMFunctions.swift in Sources */,
 				335F65622BF2CFDA00582CC1 /* DFMGatewayOp.swift in Sources */,
 				33AC89912BED3FC700BDC7E2 /* DFMConstants.swift in Sources */,
 			);
@@ -724,12 +744,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DiscordForMac/DiscordForMac.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DiscordForMac/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=macosx*]" = LG9VHH63DQ;
+				DEVELOPMENT_TEAM = LG9VHH63DQ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -739,6 +757,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiscordForMac/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
+				"INFOPLIST_KEY_CFBundleDisplayName[sdk=iphoneos*]" = DiscordForiOS;
+				"INFOPLIST_KEY_CFBundleDisplayName[sdk=macosx*]" = DiscordForMac;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -773,20 +793,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DiscordForMac/DiscordForMac.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DiscordForMac/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=macosx*]" = LG9VHH63DQ;
+				DEVELOPMENT_TEAM = LG9VHH63DQ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "NOAPIPHONEHOME=1";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiscordForMac/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
-				"INFOPLIST_KEY_CFBundleDisplayName[sdk=iphoneos*]" = "ThisCord iOS";
-				"INFOPLIST_KEY_CFBundleDisplayName[sdk=macosx*]" = ThisCordForMac;
+				"INFOPLIST_KEY_CFBundleDisplayName[sdk=iphoneos*]" = DiscordForiOS;
+				"INFOPLIST_KEY_CFBundleDisplayName[sdk=macosx*]" = DiscordForMac;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -837,6 +856,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		33B967C12C18B6C000032CD9 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		33B967C22C18B6C000032CD9 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 33B967C12C18B6C000032CD9 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 33AC89712BED209100BDC7E2 /* Project object */;
 }

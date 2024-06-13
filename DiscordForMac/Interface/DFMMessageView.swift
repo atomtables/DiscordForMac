@@ -34,6 +34,7 @@ struct DFMMessageView: View {
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .scaleEffect(x: 1, y: -1, anchor: .center)
+                    .animation(.easeOut)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }

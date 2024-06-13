@@ -151,7 +151,7 @@ public class DFMGatewayConnectionSocket {
             } else if op.op == .heartbeatAck {
                 self.heartbeatACK = true
             } else {
-                print("what (nothing matches): Op \(op.op)")
+                print("what : (nothing matches): Op \(op.op)")
             }
         } catch {
             print("Unexpected inability to decode... \(error)")

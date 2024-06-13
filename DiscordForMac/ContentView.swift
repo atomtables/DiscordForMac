@@ -61,19 +61,25 @@ struct ContentView: View {
             .navigationSplitViewColumnWidth(min: 130, ideal: 215, max: 300)
             
         } content: {
-            if let selectedGuild {
-                if selectedGuild.guild.id == 0 {
-                    DFMPrivateChannelView(selectedChannel: $selectedChannel)
+            Group {
+                if let selectedGuild {
+                    if selectedGuild.guild.id == 0 {
+                        DFMPrivateChannelView(selectedChannel: $selectedChannel)
+                    } else {
+                        DFMChannelListView(selectedGuild: selectedGuild, selectedChannel: $selectedChannel)
+                    }
                 } else {
-                    DFMChannelListView(selectedGuild: selectedGuild, selectedChannel: $selectedChannel)
+                    Text("\(selectedGuild?.guild.name ?? "content")")
                 }
-            } else {
-                Text("\(selectedGuild?.guild.name ?? "content")")
             }
+            .navigationSplitViewColumnWidth(min: 130, ideal: 215, max: 300)
         } detail: {
-            if let selectedChannel {
-                DFMMessageView(selectedChannel: selectedChannel)
+            Group {
+                if let selectedChannel {
+                    DFMMessageView(selectedChannel: selectedChannel)
+                }
             }
+            .navigationSplitViewColumnWidth(min: 400, ideal: 500)
         }.navigationTitle(selectedGuild?.guild.name ?? "")
         
     }

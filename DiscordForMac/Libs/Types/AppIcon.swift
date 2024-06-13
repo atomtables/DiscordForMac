@@ -17,12 +17,16 @@ import UIKit
 struct AppIcon: View {
     var body: Image {
         Image(nsImage: NSImage(named: "AppIcon") ?? NSImage())
+            .resizable()
     }
+    
+    
 }
 #elseif os(iOS)
 struct AppIcon: View {
     var body: Image {
         Image(uiImage: UIImage(named: "AppIcon") ?? UIImage())
+            .resizable()
     }
 }
 #endif
