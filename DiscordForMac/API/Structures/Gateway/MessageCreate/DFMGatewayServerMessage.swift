@@ -46,7 +46,7 @@ class DFMGatewayServerMessageStructure: Codable {
     let channelId: Snowflake
     let author: DFMUser?
     let content: String?
-    let timestamp: String // date
+    let timestamp: Date // date
     let editedTimestamp: String? // date
     let tts: Bool
     let mentionEveryone: Bool
@@ -80,7 +80,7 @@ class DFMGatewayServerMessageStructure: Codable {
     let guildId: Snowflake?
     let member: DFMGuildMember?
     
-    init(id: Snowflake, channelId: Snowflake, author: DFMUser?, content: String?, timestamp: String, editedTimestamp: String?, tts: Bool, mentionEveryone: Bool, mentions: [DFMGatewayServerMessageUser], mentionRoles: [String], mentionChannels: [DFMChannel]?, attachments: [DFMAttachment]?, embeds: [DFMEmbed]?, reactions: [DFMReaction]?, nonce: String?, pinned: Bool, webhookId: Snowflake?, type: DFMMessageType, activity: DFMMessageActivity?, application: String?, applicationId: Snowflake?, messageReference: DFMMessageReference?, flags: DFMMessageFlags?, referencedMessage: DFMMessage?, interactionMetadata: DFMMessageInteractionMetadata?, interaction: DFMMessageInteraction?, thread: DFMChannel?, stickerItems: [DFMStickerItem]?, stickers: [DFMSticker]?, position: Int?, roleSubscriptionData: DFMRoleSubscriptionData?, resolved: DFMMessageResolvedData?, poll: DFMPoll?, call: DFMMessageCall?, guildId: Snowflake?, member: DFMGuildMember?) {
+    init(id: Snowflake, channelId: Snowflake, author: DFMUser?, content: String?, timestamp: Date, editedTimestamp: String?, tts: Bool, mentionEveryone: Bool, mentions: [DFMGatewayServerMessageUser], mentionRoles: [String], mentionChannels: [DFMChannel]?, attachments: [DFMAttachment]?, embeds: [DFMEmbed]?, reactions: [DFMReaction]?, nonce: String?, pinned: Bool, webhookId: Snowflake?, type: DFMMessageType, activity: DFMMessageActivity?, application: String?, applicationId: Snowflake?, messageReference: DFMMessageReference?, flags: DFMMessageFlags?, referencedMessage: DFMMessage?, interactionMetadata: DFMMessageInteractionMetadata?, interaction: DFMMessageInteraction?, thread: DFMChannel?, stickerItems: [DFMStickerItem]?, stickers: [DFMSticker]?, position: Int?, roleSubscriptionData: DFMRoleSubscriptionData?, resolved: DFMMessageResolvedData?, poll: DFMPoll?, call: DFMMessageCall?, guildId: Snowflake?, member: DFMGuildMember?) {
         self.id = id
         self.channelId = channelId
         self.author = author

@@ -35,7 +35,7 @@ struct DFMChannel: Codable, Identifiable, Hashable {
     let applicationId: String?
     let managed: Bool?
     let parentId: Snowflake?
-    let lastPinTimestamp: String? // timestamp
+    let lastPinTimestamp: Date? // timestamp
     let rtcRegion: String?
     let videoQualityMode: DFMVideoQualityMode?
     let messageCount: Int?
@@ -104,7 +104,7 @@ struct DFMChannel: Codable, Identifiable, Hashable {
         defaultForumLayout = nil
     }
     
-    init(id: Snowflake, name: String?, type: DFMChannelType, icon: String?, recipients: [DFMUser], lastMessageId: Snowflake?, isSpam: Bool?, flags: Int?, ownerId: Snowflake?, lastPinTimestamp: String?) {
+    init(id: Snowflake, name: String?, type: DFMChannelType, icon: String?, recipients: [DFMUser], lastMessageId: Snowflake?, isSpam: Bool?, flags: Int?, ownerId: Snowflake?, lastPinTimestamp: Date?) {
         self.id = id
         self.name = name
         self.type = type

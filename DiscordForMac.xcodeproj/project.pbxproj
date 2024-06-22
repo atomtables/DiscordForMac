@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		331E242F2C232A3D00D5A496 /* GetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331E242E2C232A3A00D5A496 /* GetUser.swift */; };
+		331E24312C24981D00D5A496 /* DFMAccountChooserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331E24302C24981800D5A496 /* DFMAccountChooserView.swift */; };
 		335F65302BEFB73000582CC1 /* Snowflake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335F652F2BEFB73000582CC1 /* Snowflake.swift */; };
 		335F65342BEFF4F800582CC1 /* DFMRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335F65332BEFF4F800582CC1 /* DFMRole.swift */; };
 		335F65362BEFF79C00582CC1 /* DFMEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335F65352BEFF79C00582CC1 /* DFMEmoji.swift */; };
@@ -23,7 +25,6 @@
 		335F654C2BF0200B00582CC1 /* DFMDefaultReaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335F654B2BF0200B00582CC1 /* DFMDefaultReaction.swift */; };
 		335F65512BF02C1600582CC1 /* DFMGuildListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335F65502BF02C1600582CC1 /* DFMGuildListView.swift */; };
 		335F65532BF03CBD00582CC1 /* CaseIterableDefaultsLast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335F65522BF03CBD00582CC1 /* CaseIterableDefaultsLast.swift */; };
-		335F65552BF060D100582CC1 /* GetDFMUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335F65542BF060D100582CC1 /* GetDFMUserInfo.swift */; };
 		335F65572BF067F200582CC1 /* DFMUserFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335F65562BF067F200582CC1 /* DFMUserFlags.swift */; };
 		335F65592BF06C3000582CC1 /* DFMUserSelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335F65582BF06C2F00582CC1 /* DFMUserSelfView.swift */; };
 		335F655C2BF100A300582CC1 /* DFMInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335F655B2BF100A300582CC1 /* DFMInformation.swift */; };
@@ -46,7 +47,6 @@
 		338BA1542BF798C50084ED05 /* DFMPrivateChannelsUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338BA1532BF798C50084ED05 /* DFMPrivateChannelsUpdater.swift */; };
 		338BA1562BF7C83F0084ED05 /* DFMPrivateChannelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338BA1552BF7C83F0084ED05 /* DFMPrivateChannelView.swift */; };
 		338F7C322C0B9E33008EBDA0 /* GetMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338F7C312C0B9E33008EBDA0 /* GetMessages.swift */; };
-		338F7C342C0CD341008EBDA0 /* GetPresences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338F7C332C0CD341008EBDA0 /* GetPresences.swift */; };
 		338F7C362C0CD4CB008EBDA0 /* DFMPresence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338F7C352C0CD4CB008EBDA0 /* DFMPresence.swift */; };
 		33A8020D2C0D59220068AA11 /* DFMGatewayServerReadySupplemental.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A8020C2C0D59220068AA11 /* DFMGatewayServerReadySupplemental.swift */; };
 		33AAD1272C0D660B00DD888D /* DFMPresencesUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AAD1262C0D660B00DD888D /* DFMPresencesUpdater.swift */; };
@@ -64,7 +64,6 @@
 		33AC89932BEE737100BDC7E2 /* DFMImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC89922BEE737100BDC7E2 /* DFMImageCache.swift */; };
 		33AC89992BEE78AF00BDC7E2 /* DFMImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC89982BEE78AF00BDC7E2 /* DFMImageView.swift */; };
 		33AC899C2BEE916100BDC7E2 /* NSRegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC899B2BEE916100BDC7E2 /* NSRegularExpression.swift */; };
-		33AC89A02BEEEAF300BDC7E2 /* GetDFMGuildsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC899F2BEEEAF300BDC7E2 /* GetDFMGuildsList.swift */; };
 		33AC89A52BEEF91300BDC7E2 /* DFMChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC89A42BEEF91300BDC7E2 /* DFMChannel.swift */; };
 		33AC89A82BEEFEF300BDC7E2 /* DFMUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC89A72BEEFEF300BDC7E2 /* DFMUser.swift */; };
 		33AC89AA2BEFA5BD00BDC7E2 /* DFMChannelEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC89A92BEFA5BD00BDC7E2 /* DFMChannelEnums.swift */; };
@@ -72,11 +71,26 @@
 		33B967C62C18B8A400032CD9 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B967C52C18B8A400032CD9 /* LaunchScreen.swift */; };
 		33B967C82C1A63E300032CD9 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B967C72C1A63DA00032CD9 /* VisualEffectView.swift */; };
 		33B967CA2C1A6A8400032CD9 /* DFMFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B967C92C1A6A8100032CD9 /* DFMFunctions.swift */; };
+		33B967CC2C1B5EAE00032CD9 /* JSONEncoder+JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B967CB2C1B5EA700032CD9 /* JSONEncoder+JSONDecoder.swift */; };
+		33B967CF2C1B64BA00032CD9 /* DividerWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B967CE2C1B64B700032CD9 /* DividerWithLabel.swift */; };
+		33B967D22C1B6F5300032CD9 /* ErrorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B967D12C1B6F5000032CD9 /* ErrorScreen.swift */; };
+		33B967DA2C1CF60100032CD9 /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B967D92C1CF5FE00032CD9 /* SplitView.swift */; };
+		33B967E22C1D287200032CD9 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B967E12C1D287000032CD9 /* LoginScreen.swift */; };
+		33B967E42C1D3AFD00032CD9 /* DFMNotificationSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 33B967E32C1D3AFD00032CD9 /* DFMNotificationSound.mp3 */; };
+		33B967E72C1D3B3700032CD9 /* EmailPasswordLogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B967E62C1D3B2D00032CD9 /* EmailPasswordLogIn.swift */; };
+		33B967E92C1D3B9200032CD9 /* TOTPTwoStepLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B967E82C1D3B8800032CD9 /* TOTPTwoStepLogin.swift */; };
+		33B967EC2C1D3BF500032CD9 /* DFMAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B967EB2C1D3BEC00032CD9 /* DFMAuthentication.swift */; };
+		33B967EF2C1DC87000032CD9 /* DFMRestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B967EE2C1DC86C00032CD9 /* DFMRestError.swift */; };
+		33B967F22C1DDC6300032CD9 /* AnyCodable in Frameworks */ = {isa = PBXBuildFile; productRef = 33B967F12C1DDC6300032CD9 /* AnyCodable */; };
+		33B967F42C1F590200032CD9 /* MOTPTwoStepLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B967F32C1F58FF00032CD9 /* MOTPTwoStepLogin.swift */; };
+		33B967F62C21C14400032CD9 /* DFMLogOutUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B967F52C21C14000032CD9 /* DFMLogOutUpdater.swift */; };
 		33D0C1302BFFD78800905F06 /* DFMMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D0C12F2BFFD78800905F06 /* DFMMessage.swift */; };
 		33EDDF282BF5ACC400FBE476 /* DFMGuildsUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EDDF272BF5ACC400FBE476 /* DFMGuildsUpdater.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		331E242E2C232A3A00D5A496 /* GetUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUser.swift; sourceTree = "<group>"; };
+		331E24302C24981800D5A496 /* DFMAccountChooserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMAccountChooserView.swift; sourceTree = "<group>"; };
 		335316F72C17A87E0003B1BB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		335F652F2BEFB73000582CC1 /* Snowflake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snowflake.swift; sourceTree = "<group>"; };
 		335F65332BEFF4F800582CC1 /* DFMRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMRole.swift; sourceTree = "<group>"; };
@@ -94,7 +108,6 @@
 		335F654B2BF0200B00582CC1 /* DFMDefaultReaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMDefaultReaction.swift; sourceTree = "<group>"; };
 		335F65502BF02C1600582CC1 /* DFMGuildListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMGuildListView.swift; sourceTree = "<group>"; };
 		335F65522BF03CBD00582CC1 /* CaseIterableDefaultsLast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseIterableDefaultsLast.swift; sourceTree = "<group>"; };
-		335F65542BF060D100582CC1 /* GetDFMUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDFMUserInfo.swift; sourceTree = "<group>"; };
 		335F65562BF067F200582CC1 /* DFMUserFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMUserFlags.swift; sourceTree = "<group>"; };
 		335F65582BF06C2F00582CC1 /* DFMUserSelfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMUserSelfView.swift; sourceTree = "<group>"; };
 		335F655B2BF100A300582CC1 /* DFMInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMInformation.swift; sourceTree = "<group>"; };
@@ -117,7 +130,6 @@
 		338BA1532BF798C50084ED05 /* DFMPrivateChannelsUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMPrivateChannelsUpdater.swift; sourceTree = "<group>"; };
 		338BA1552BF7C83F0084ED05 /* DFMPrivateChannelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMPrivateChannelView.swift; sourceTree = "<group>"; };
 		338F7C312C0B9E33008EBDA0 /* GetMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMessages.swift; sourceTree = "<group>"; };
-		338F7C332C0CD341008EBDA0 /* GetPresences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPresences.swift; sourceTree = "<group>"; };
 		338F7C352C0CD4CB008EBDA0 /* DFMPresence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMPresence.swift; sourceTree = "<group>"; };
 		33A8020C2C0D59220068AA11 /* DFMGatewayServerReadySupplemental.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMGatewayServerReadySupplemental.swift; sourceTree = "<group>"; };
 		33AAD1262C0D660B00DD888D /* DFMPresencesUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMPresencesUpdater.swift; sourceTree = "<group>"; };
@@ -138,13 +150,24 @@
 		33AC89922BEE737100BDC7E2 /* DFMImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMImageCache.swift; sourceTree = "<group>"; };
 		33AC89982BEE78AF00BDC7E2 /* DFMImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMImageView.swift; sourceTree = "<group>"; };
 		33AC899B2BEE916100BDC7E2 /* NSRegularExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRegularExpression.swift; sourceTree = "<group>"; };
-		33AC899F2BEEEAF300BDC7E2 /* GetDFMGuildsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDFMGuildsList.swift; sourceTree = "<group>"; };
 		33AC89A42BEEF91300BDC7E2 /* DFMChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DFMChannel.swift; path = DiscordForMac/API/Structures/Channels/DFMChannel.swift; sourceTree = SOURCE_ROOT; usesTabs = 0; };
 		33AC89A72BEEFEF300BDC7E2 /* DFMUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMUser.swift; sourceTree = "<group>"; };
 		33AC89A92BEFA5BD00BDC7E2 /* DFMChannelEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMChannelEnums.swift; sourceTree = "<group>"; };
 		33B967C52C18B8A400032CD9 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		33B967C72C1A63DA00032CD9 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
 		33B967C92C1A6A8100032CD9 /* DFMFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMFunctions.swift; sourceTree = "<group>"; };
+		33B967CB2C1B5EA700032CD9 /* JSONEncoder+JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONEncoder+JSONDecoder.swift"; sourceTree = "<group>"; };
+		33B967CE2C1B64B700032CD9 /* DividerWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerWithLabel.swift; sourceTree = "<group>"; };
+		33B967D12C1B6F5000032CD9 /* ErrorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorScreen.swift; sourceTree = "<group>"; };
+		33B967D92C1CF5FE00032CD9 /* SplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
+		33B967E12C1D287000032CD9 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginScreen.swift; path = DiscordForMac/UI/AlternateScreens/LoginScreen.swift; sourceTree = SOURCE_ROOT; };
+		33B967E32C1D3AFD00032CD9 /* DFMNotificationSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = DFMNotificationSound.mp3; sourceTree = "<group>"; };
+		33B967E62C1D3B2D00032CD9 /* EmailPasswordLogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailPasswordLogIn.swift; sourceTree = "<group>"; };
+		33B967E82C1D3B8800032CD9 /* TOTPTwoStepLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOTPTwoStepLogin.swift; sourceTree = "<group>"; };
+		33B967EB2C1D3BEC00032CD9 /* DFMAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMAuthentication.swift; sourceTree = "<group>"; };
+		33B967EE2C1DC86C00032CD9 /* DFMRestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMRestError.swift; sourceTree = "<group>"; };
+		33B967F32C1F58FF00032CD9 /* MOTPTwoStepLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOTPTwoStepLogin.swift; sourceTree = "<group>"; };
+		33B967F52C21C14000032CD9 /* DFMLogOutUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMLogOutUpdater.swift; sourceTree = "<group>"; };
 		33D0C12F2BFFD78800905F06 /* DFMMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMMessage.swift; sourceTree = "<group>"; };
 		33EDDF272BF5ACC400FBE476 /* DFMGuildsUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMGuildsUpdater.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33B967F22C1DDC6300032CD9 /* AnyCodable in Frameworks */,
 				33B967C32C18B6C000032CD9 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,28 +185,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		331E242C2C232A1900D5A496 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				338F7C312C0B9E33008EBDA0 /* GetMessages.swift */,
+				33AAD12A2C0F7DD700DD888D /* SendMessage.swift */,
+			);
+			path = Messages;
+			sourceTree = "<group>";
+		};
+		331E242D2C232A2400D5A496 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				331E242E2C232A3A00D5A496 /* GetUser.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		335F652E2BEFB72000582CC1 /* Types */ = {
 			isa = PBXGroup;
 			children = (
 				335F652F2BEFB73000582CC1 /* Snowflake.swift */,
 				335F653D2BEFFCDE00582CC1 /* DFMPermission.swift */,
 				335F65562BF067F200582CC1 /* DFMUserFlags.swift */,
-				33AAD1372C13925500DD888D /* AppIcon.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
 		};
-		335F654D2BF02B0000582CC1 /* Interface */ = {
+		335F654D2BF02B0000582CC1 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				33B967D02C1B6F3F00032CD9 /* AlternateScreens */,
+				331E24302C24981800D5A496 /* DFMAccountChooserView.swift */,
 				335F65502BF02C1600582CC1 /* DFMGuildListView.swift */,
 				335F65582BF06C2F00582CC1 /* DFMUserSelfView.swift */,
 				3379898D2BF654B60072F76B /* DFMChannelListView.swift */,
 				338BA1552BF7C83F0084ED05 /* DFMPrivateChannelView.swift */,
 				33AAD1282C0E7E7900DD888D /* DFMMessageView.swift */,
-				33B967C52C18B8A400032CD9 /* LaunchScreen.swift */,
 			);
-			path = Interface;
+			path = UI;
 			sourceTree = "<group>";
 		};
 		335F655A2BF1009400582CC1 /* Data */ = {
@@ -269,6 +310,7 @@
 		335F65792BF525B100582CC1 /* Updates */ = {
 			isa = PBXGroup;
 			children = (
+				33B967F52C21C14000032CD9 /* DFMLogOutUpdater.swift */,
 				335F657A2BF525C200582CC1 /* DFMUserUpdater.swift */,
 				33EDDF272BF5ACC400FBE476 /* DFMGuildsUpdater.swift */,
 				338BA14B2BF6CE490084ED05 /* DFMUserReferenceUpdater.swift */,
@@ -331,9 +373,10 @@
 		33AC897B2BED209100BDC7E2 /* DiscordForMac */ = {
 			isa = PBXGroup;
 			children = (
+				33B967D42C1C707900032CD9 /* Media */,
 				33AAD12C2C0FE70800DD888D /* Info.plist */,
 				33AC898B2BED3A2700BDC7E2 /* API */,
-				335F654D2BF02B0000582CC1 /* Interface */,
+				335F654D2BF02B0000582CC1 /* UI */,
 				33AC89942BEE76E400BDC7E2 /* Libs */,
 				33AC897C2BED209100BDC7E2 /* DiscordForMacApp.swift */,
 				33AC897E2BED209100BDC7E2 /* ContentView.swift */,
@@ -365,6 +408,8 @@
 		33AC89942BEE76E400BDC7E2 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				33B967C92C1A6A8100032CD9 /* DFMFunctions.swift */,
+				33B967CD2C1B64A600032CD9 /* Interface */,
 				335F655A2BF1009400582CC1 /* Data */,
 				335F655D2BF2966C00582CC1 /* Gateway */,
 				335F652E2BEFB72000582CC1 /* Types */,
@@ -386,8 +431,7 @@
 		33AC899A2BEE914200BDC7E2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				33B967C92C1A6A8100032CD9 /* DFMFunctions.swift */,
-				33B967C72C1A63DA00032CD9 /* VisualEffectView.swift */,
+				33B967CB2C1B5EA700032CD9 /* JSONEncoder+JSONDecoder.swift */,
 				33AC899B2BEE916100BDC7E2 /* NSRegularExpression.swift */,
 				335F65522BF03CBD00582CC1 /* CaseIterableDefaultsLast.swift */,
 				335F655E2BF2CDC700582CC1 /* CodableExplicitNull.swift */,
@@ -399,6 +443,8 @@
 		33AC899D2BEEEAC000BDC7E2 /* Structures */ = {
 			isa = PBXGroup;
 			children = (
+				33B967EA2C1D3BE700032CD9 /* Authentication */,
+				33B967ED2C1DC85F00032CD9 /* Errors */,
 				33D0C12E2BFFD77900905F06 /* Messages */,
 				335F65742BF4F01600582CC1 /* Relationships */,
 				335F65602BF2CE2F00582CC1 /* Gateway */,
@@ -412,21 +458,11 @@
 		33AC899E2BEEEAC900BDC7E2 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
-				33AC89A22BEEEB8700BDC7E2 /* Guilds */,
-				338F7C312C0B9E33008EBDA0 /* GetMessages.swift */,
-				338F7C332C0CD341008EBDA0 /* GetPresences.swift */,
-				33AAD12A2C0F7DD700DD888D /* SendMessage.swift */,
+				33B967E52C1D3B2700032CD9 /* Authentication */,
+				331E242C2C232A1900D5A496 /* Messages */,
+				331E242D2C232A2400D5A496 /* User */,
 			);
 			path = Requests;
-			sourceTree = "<group>";
-		};
-		33AC89A22BEEEB8700BDC7E2 /* Guilds */ = {
-			isa = PBXGroup;
-			children = (
-				33AC899F2BEEEAF300BDC7E2 /* GetDFMGuildsList.swift */,
-				335F65542BF060D100582CC1 /* GetDFMUserInfo.swift */,
-			);
-			path = Guilds;
 			sourceTree = "<group>";
 		};
 		33AC89AB2BEFAB6000BDC7E2 /* Users */ = {
@@ -469,6 +505,61 @@
 			path = Guilds;
 			sourceTree = "<group>";
 		};
+		33B967CD2C1B64A600032CD9 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				33B967D92C1CF5FE00032CD9 /* SplitView.swift */,
+				33AAD1372C13925500DD888D /* AppIcon.swift */,
+				33B967CE2C1B64B700032CD9 /* DividerWithLabel.swift */,
+				33B967C72C1A63DA00032CD9 /* VisualEffectView.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		33B967D02C1B6F3F00032CD9 /* AlternateScreens */ = {
+			isa = PBXGroup;
+			children = (
+				33B967E12C1D287000032CD9 /* LoginScreen.swift */,
+				33B967D12C1B6F5000032CD9 /* ErrorScreen.swift */,
+				33B967C52C18B8A400032CD9 /* LaunchScreen.swift */,
+			);
+			path = AlternateScreens;
+			sourceTree = "<group>";
+		};
+		33B967D42C1C707900032CD9 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				33B967E32C1D3AFD00032CD9 /* DFMNotificationSound.mp3 */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
+		33B967E52C1D3B2700032CD9 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				33B967E62C1D3B2D00032CD9 /* EmailPasswordLogIn.swift */,
+				33B967F32C1F58FF00032CD9 /* MOTPTwoStepLogin.swift */,
+				33B967E82C1D3B8800032CD9 /* TOTPTwoStepLogin.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		33B967EA2C1D3BE700032CD9 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				33B967EB2C1D3BEC00032CD9 /* DFMAuthentication.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		33B967ED2C1DC85F00032CD9 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				33B967EE2C1DC86C00032CD9 /* DFMRestError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 		33D0C12E2BFFD77900905F06 /* Messages */ = {
 			isa = PBXGroup;
 			children = (
@@ -495,6 +586,7 @@
 			name = DiscordForMac;
 			packageProductDependencies = (
 				33B967C22C18B6C000032CD9 /* KeychainAccess */,
+				33B967F12C1DDC6300032CD9 /* AnyCodable */,
 			);
 			productName = DiscordForMac;
 			productReference = 33AC89792BED209100BDC7E2 /* DiscordForMac.app */;
@@ -526,6 +618,7 @@
 			mainGroup = 33AC89702BED209100BDC7E2;
 			packageReferences = (
 				33B967C12C18B6C000032CD9 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				33B967F02C1DDC6200032CD9 /* XCRemoteSwiftPackageReference "AnyCodable" */,
 			);
 			productRefGroup = 33AC897A2BED209100BDC7E2 /* Products */;
 			projectDirPath = "";
@@ -542,6 +635,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33AC89852BED209400BDC7E2 /* Preview Assets.xcassets in Resources */,
+				33B967E42C1D3AFD00032CD9 /* DFMNotificationSound.mp3 in Resources */,
 				33AC89812BED209400BDC7E2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,29 +647,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33B967CC2C1B5EAE00032CD9 /* JSONEncoder+JSONDecoder.swift in Sources */,
 				335F65482BF01B9500582CC1 /* DFMThreadMember.swift in Sources */,
 				33AC89932BEE737100BDC7E2 /* DFMImageCache.swift in Sources */,
 				33B967C82C1A63E300032CD9 /* VisualEffectView.swift in Sources */,
 				33AC897F2BED209100BDC7E2 /* ContentView.swift in Sources */,
 				33AAD1322C10969F00DD888D /* DFMGatewayServerMessage.swift in Sources */,
 				335F655C2BF100A300582CC1 /* DFMInformation.swift in Sources */,
+				33B967E72C1D3B3700032CD9 /* EmailPasswordLogIn.swift in Sources */,
+				331E24312C24981D00D5A496 /* DFMAccountChooserView.swift in Sources */,
+				33B967EC2C1D3BF500032CD9 /* DFMAuthentication.swift in Sources */,
 				33AAD1292C0E7E7900DD888D /* DFMMessageView.swift in Sources */,
 				33AC898F2BED3A6C00BDC7E2 /* DFMGuild.swift in Sources */,
 				33AC899C2BEE916100BDC7E2 /* NSRegularExpression.swift in Sources */,
 				335F65362BEFF79C00582CC1 /* DFMEmoji.swift in Sources */,
 				335F653E2BEFFCDE00582CC1 /* DFMPermission.swift in Sources */,
-				335F65552BF060D100582CC1 /* GetDFMUserInfo.swift in Sources */,
+				33B967EF2C1DC87000032CD9 /* DFMRestError.swift in Sources */,
+				33B967F42C1F590200032CD9 /* MOTPTwoStepLogin.swift in Sources */,
 				335F653C2BEFF9B300582CC1 /* DFMSticker.swift in Sources */,
 				335F657B2BF525C200582CC1 /* DFMUserUpdater.swift in Sources */,
 				33A8020D2C0D59220068AA11 /* DFMGatewayServerReadySupplemental.swift in Sources */,
 				335F654C2BF0200B00582CC1 /* DFMDefaultReaction.swift in Sources */,
 				33AAD1272C0D660B00DD888D /* DFMPresencesUpdater.swift in Sources */,
 				335F65732BF4ED0600582CC1 /* DFMGatewayServerReady.swift in Sources */,
-				338F7C342C0CD341008EBDA0 /* GetPresences.swift in Sources */,
 				335F654A2BF01D2400582CC1 /* DFMForumTag.swift in Sources */,
 				33AAD1342C10B63300DD888D /* DFMMessageUpdater.swift in Sources */,
 				335F65592BF06C3000582CC1 /* DFMUserSelfView.swift in Sources */,
 				338BA1542BF798C50084ED05 /* DFMPrivateChannelsUpdater.swift in Sources */,
+				33B967E92C1D3B9200032CD9 /* TOTPTwoStepLogin.swift in Sources */,
 				335F657D2BF5286800582CC1 /* DFMGatewayUpdate.swift in Sources */,
 				335F65512BF02C1600582CC1 /* DFMGuildListView.swift in Sources */,
 				335F65762BF4F02600582CC1 /* DFMGatewayRelationship.swift in Sources */,
@@ -588,6 +687,8 @@
 				338BA14F2BF6D5930084ED05 /* DFMChannelViewData.swift in Sources */,
 				338F7C322C0B9E33008EBDA0 /* GetMessages.swift in Sources */,
 				335F65342BEFF4F800582CC1 /* DFMRole.swift in Sources */,
+				331E242F2C232A3D00D5A496 /* GetUser.swift in Sources */,
+				33B967F62C21C14400032CD9 /* DFMLogOutUpdater.swift in Sources */,
 				3379898E2BF654B60072F76B /* DFMChannelListView.swift in Sources */,
 				335F65652BF2DBF400582CC1 /* DFMGatewayServerHello.swift in Sources */,
 				335F65532BF03CBD00582CC1 /* CaseIterableDefaultsLast.swift in Sources */,
@@ -602,18 +703,21 @@
 				33AC89AA2BEFA5BD00BDC7E2 /* DFMChannelEnums.swift in Sources */,
 				338BA1522BF6D64A0084ED05 /* DFMGuildViewData.swift in Sources */,
 				335F656C2BF2DC8F00582CC1 /* DFMGatewayClientIdentify.swift in Sources */,
+				33B967D22C1B6F5300032CD9 /* ErrorScreen.swift in Sources */,
+				33B967CF2C1B64BA00032CD9 /* DividerWithLabel.swift in Sources */,
 				33AC89A82BEEFEF300BDC7E2 /* DFMUser.swift in Sources */,
 				335F65462BF008E700582CC1 /* DFMGuildMember.swift in Sources */,
 				33B967C62C18B8A400032CD9 /* LaunchScreen.swift in Sources */,
 				33AC897D2BED209100BDC7E2 /* DiscordForMacApp.swift in Sources */,
 				338BA14C2BF6CE490084ED05 /* DFMUserReferenceUpdater.swift in Sources */,
+				33B967DA2C1CF60100032CD9 /* SplitView.swift in Sources */,
 				33AAD12B2C0F7DD700DD888D /* SendMessage.swift in Sources */,
 				335F65442BF005A800582CC1 /* DFMThreadMetadata.swift in Sources */,
 				335F655F2BF2CDC700582CC1 /* CodableExplicitNull.swift in Sources */,
 				335F657F2BF538E600582CC1 /* DateFormatter.swift in Sources */,
 				335F65422BF003F300582CC1 /* DFMPermissionOverride.swift in Sources */,
-				33AC89A02BEEEAF300BDC7E2 /* GetDFMGuildsList.swift in Sources */,
 				335F65402BF0039A00582CC1 /* DFMChannelType.swift in Sources */,
+				33B967E22C1D287200032CD9 /* LoginScreen.swift in Sources */,
 				33B967CA2C1A6A8400032CD9 /* DFMFunctions.swift in Sources */,
 				335F65622BF2CFDA00582CC1 /* DFMGatewayOp.swift in Sources */,
 				33AC89912BED3FC700BDC7E2 /* DFMConstants.swift in Sources */,
@@ -866,6 +970,14 @@
 				kind = branch;
 			};
 		};
+		33B967F02C1DDC6200032CD9 /* XCRemoteSwiftPackageReference "AnyCodable" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Flight-School/AnyCodable.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.6.7;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -873,6 +985,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 33B967C12C18B6C000032CD9 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
+		};
+		33B967F12C1DDC6300032CD9 /* AnyCodable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 33B967F02C1DDC6200032CD9 /* XCRemoteSwiftPackageReference "AnyCodable" */;
+			productName = AnyCodable;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

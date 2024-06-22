@@ -14,12 +14,12 @@ func DFMUserReferenceUpdater() async {
         object: nil,
         queue: nil
     ) { notification in
-        print("updating userreferences")
+        PrintDebug("updating userreferences")
         let obj = notification.object as? DFMGatewayUpdate
         if obj?.type == .InitialState {
             let data: [Snowflake: DFMUser] = obj?.data as! [Snowflake: DFMUser]
-            Task {
-                await DFMInformation.shared.setUserReferences(data)
+            DispatchQueue.main.async {
+                DFMInformation.shared.userReferences = data
             }
         }
     }

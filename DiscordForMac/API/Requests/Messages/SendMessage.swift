@@ -7,11 +7,13 @@
 
 import Foundation
 
+/// Sends messages and returns a nonce
+/// When that nonce is received through the gateway,
+/// the message has been successfully pinged.
 func SendMessage(_ channel: Snowflake, textMessage: String) async throws -> String {
     let nonce = String(Int64(arc4random()))
     let message = DFMClientMessage(textMessage, nonce: nonce)
-    let encoder = JSONEncoder()
-    encoder.keyEncodingStrategy = .convertToSnakeCase
+    let encoder = DFMConstants.encoder
     var data: Data
     do {
         data = try encoder.encode(message)
@@ -29,6 +31,6 @@ func SendMessage(_ channel: Snowflake, textMessage: String) async throws -> Stri
     } catch {
         throw DFMError.thrownError("Network error: \(error)")
     }
-    print(String(data: data, encoding: .utf8)!)
+    PrintDebug(String(data: data, encoding: .utf8)!)
     return nonce
 }

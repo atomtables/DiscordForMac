@@ -9,6 +9,14 @@ import Foundation
 
 enum DFMError: Error {
     case thrownError(String)
+    case shownError(DFMErrorPriority, String)
+    case internalError(Int, DFMErrorPriority, String)
+}
+
+enum DFMErrorPriority {
+    case info
+    case warning
+    case critical
 }
 
 func DFMPresencesUpdater() {
@@ -20,8 +28,8 @@ func DFMPresencesUpdater() {
         let object = notification.object as! DFMGatewayUpdate
         let gatewayPresences = object.data as! [DFMGatewayServerReadySupplementalFriendPresences]
         // map this to regular presences
-        Task {
-            let userDict = await DFMInformation.shared.userReferences
+        DispatchQueue.main.async {
+            let userDict = DFMInformation.shared.userReferences
             
             let presences: [DFMPresence] = gatewayPresences.compactMap { presence in
                 do {
@@ -36,7 +44,7 @@ func DFMPresencesUpdater() {
                 }
             }
             
-            await DFMInformation.shared.setPresences(presences)
+            DFMInformation.shared.presences = presences
         }
     }
     

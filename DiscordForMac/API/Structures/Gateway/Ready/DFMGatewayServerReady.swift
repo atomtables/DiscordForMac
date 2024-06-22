@@ -32,11 +32,11 @@ struct DFMGatewayPrivateChannel: Codable {
     var id: Snowflake
     var flags: Int?
     var ownerId: Snowflake?
-    var lastPinTimestamp: String?
+    var lastPinTimestamp: Date?
 }
 
 struct DFMGatewayGuild: Codable {
-    var version: Int // timestamp
+    var version: Int? // timestamp
     // var threads: Unimplemented
     var stickers: [DFMSticker]
     // var stage_instances: Unimplemented

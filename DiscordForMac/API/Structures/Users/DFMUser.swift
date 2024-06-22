@@ -18,8 +18,8 @@ struct DFMUser: Codable, Identifiable, Hashable {
     var avatarURL: URL {
         if let avatar {
             return URL(string: "\(DFMConstants.iconBaseURL)/avatars/\(id)/\(avatar).png")!
-        } else if Int(discriminator) != 0 && Int(discriminator) != nil {
-            return URL(string: "\(DFMConstants.iconBaseURL)/embed/avatars/\(Int(discriminator)!%5).png")!
+        } else if let disc = Int(discriminator), disc != 0 {
+            return URL(string: "\(DFMConstants.iconBaseURL)/embed/avatars/\(disc%5).png")!
         } else {
             return URL(string: "\(DFMConstants.iconBaseURL)/embed/avatars/\((id.int >> 22) % 6).png")!
         }

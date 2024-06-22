@@ -201,7 +201,7 @@ struct DFMEmbed: Codable {
     let type: String? // deprecated
     let description: String?
     let url: String?
-    let timestamp: String? // date
+    let timestamp: Date? // date
     let color: Int?
     let footer: DFMEmbedFooter?
     let image: DFMEmbedImage?
@@ -296,7 +296,7 @@ class DFMPollResultsObject: Codable {
 class DFMPoll: Codable {
     let question: DFMPollMediaObject
     let answers: [DFMPollAnswerObject]
-    let expiry: String // iso8601 timestamp
+    let expiry: Date // iso8601 timestamp
     let allowMultiselect: Bool
     let layoutType: Int
     let results: DFMPollResultsObject
@@ -304,10 +304,12 @@ class DFMPoll: Codable {
 
 class DFMMessageCall: Codable { // in a private channel
     let participants: [Snowflake]
-    let endedTimestamp: String? // iso8601 timestamp
+    let endedTimestamp: Date? // iso8601 timestamp
 }
 
-class DFMMessage: Codable, Identifiable, CustomStringConvertible {
+class DFMMessage: Codable, Identifiable, CustomStringConvertible, Equatable {
+    static func == (lhs: DFMMessage, rhs: DFMMessage) -> Bool { lhs.id == rhs.id }
+    
     var description: String {
         return content ?? "Empty Message"
     }
@@ -316,8 +318,8 @@ class DFMMessage: Codable, Identifiable, CustomStringConvertible {
     let channelId: Snowflake
     let author: DFMUser?
     let content: String?
-    let timestamp: String // date
-    let editedTimestamp: String? // date
+    let timestamp: Date // date
+    let editedTimestamp: Date? // date
     let tts: Bool
     let mentionEveryone: Bool
     let mentions: [DFMGatewayServerMessageUser]

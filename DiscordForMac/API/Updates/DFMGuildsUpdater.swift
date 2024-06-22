@@ -13,7 +13,7 @@ func DFMGuildsUpdater() {
         object: nil,
         queue: nil
     ) { notification in
-        print("updating guilds")
+        PrintDebug("updating guilds")
         let obj = notification.object as? DFMGatewayUpdate
         if obj?.type == .InitialState {
             let data: [DFMGatewayGuild] = (obj?.data as! [DFMGatewayGuild])
@@ -94,8 +94,8 @@ func DFMGuildsUpdater() {
                 return DFMGuildViewData(guild: guild, categoryOrganisedChannels: guildChannels)
             }
             
-            Task {
-                await DFMInformation.shared.setGuildList(guilds)
+            DispatchQueue.main.async {
+                DFMInformation.shared.guildList = guilds
             }
         }
     }

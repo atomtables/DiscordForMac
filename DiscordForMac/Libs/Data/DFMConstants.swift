@@ -6,17 +6,22 @@
 //
 
 import Foundation
+import KeychainAccess
 
 public class DFMConstants {
     
     public final class DFMSecrets {
-        public static let token = "YOUR_DISCORD_TOKEN_HERE"
+        public static var email = ""
+        public static var token = ""
     }
-    
+
     public static let iconBaseURL = "https://cdn.discordapp.com"
     
     public static let restBaseURL = "https://discord.com/api/v9"
     
-    public static let DEBUG = false
+    public static let DEBUG = true
+
+    public static let decoder: JSONDecoder = JSONDecoder(DFM: true)
+    public static let encoder: JSONEncoder = JSONEncoder(DFM: true)
     
 }

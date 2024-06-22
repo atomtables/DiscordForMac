@@ -13,12 +13,12 @@ func DFMUserUpdater() {
         object: nil,
         queue: nil
     ) { notification in
-        print("updating user")
+        PrintDebug("updating user")
         let obj = notification.object as? DFMGatewayUpdate
         if obj?.type == .InitialState {
             let data: DFMUser = (obj?.data as? Any) as! DFMUser
-            Task {
-                await DFMInformation.shared.setUserInfo(data)
+            DispatchQueue.main.async {
+                DFMInformation.shared.userInfo = data
             }
         }
     }

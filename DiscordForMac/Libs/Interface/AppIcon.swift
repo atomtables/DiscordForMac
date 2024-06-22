@@ -16,16 +16,14 @@ import UIKit
 #if os(macOS)
 struct AppIcon: View {
     var body: Image {
-        Image(nsImage: NSImage(named: "AppIcon") ?? NSImage())
+        Image(nsImage: NSImage(named: "DiscordForMac") ?? NSImage())
             .resizable()
     }
-    
-    
 }
 #elseif os(iOS)
 struct AppIcon: View {
     var body: Image {
-        Image(uiImage: UIImage(named: "AppIcon") ?? UIImage())
+        Image(uiImage: UIImage(named: "DiscordForMac") ?? UIImage())
             .resizable()
     }
 }

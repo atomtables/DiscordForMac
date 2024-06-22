@@ -14,14 +14,13 @@ func DFMPrivateChannelsUpdater() async {
         object: nil,
         queue: nil
     ) { notification in
-        print("updating private channels")
+        PrintDebug("updating private channels")
         let obj = notification.object as? DFMGatewayUpdate
-        Task {
-            
+        DispatchQueue.main.async {
             if obj?.type == .InitialState {
                 let data: [DFMGatewayPrivateChannel] = (obj?.data as? Any) as! [DFMGatewayPrivateChannel]
                 
-                let userReferences = await DFMInformation.shared.userReferences
+                let userReferences = DFMInformation.shared.userReferences
                 
                 let channels: [DFMChannel] = data.map { channel in
                     return DFMChannel(
@@ -43,7 +42,7 @@ func DFMPrivateChannelsUpdater() async {
                     > $1.lastMessageId?.toDate() ?? Date(timeIntervalSince1970: 0)
                 }
                 
-                await DFMInformation.shared.setPrivateChannels(channels)
+                DFMInformation.shared.privateChannels = channels
             }
         }
     }

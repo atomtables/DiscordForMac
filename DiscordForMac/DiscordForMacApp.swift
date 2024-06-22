@@ -7,17 +7,44 @@
 
 import SwiftUI
 
+struct Div<Content>: View where Content: View {
+    let content: () -> Content
+    init(@ViewBuilder content: @escaping () -> Content) {
+        self.content = content
+    }
+
+    var body: some View {
+        content()
+    }
+}
+
+func PrintDebug(_ message: Any) {
+    if DFMConstants.DEBUG {
+        print(message)
+    }
+}
+
 @main
 struct DiscordForMacApp: App {
     @StateObject var info: DFMInformation = DFMInformation.shared
-    @AppStorage("DFMWelcomeScreenShown", store: UserDefaults(suiteName: "dev.atomtables.DiscordForMac.internalf")) var welcomeScreenShown: Bool = false
-    
+
+    @Environment(\.controlActiveState) var controlActiveState
+
+    @State var keys: [String] = []
+
+    @State var _true = true
+
     @State var help = false
-    @State var animate = false
-    @State var welcomeScreenWasShown = false
-    @State var showBeginButton = false
+    @State var tokenLoaded = false
     @State var showLoading = false
-    
+    @State var showAccountChooser = false
+
+    @State var ranOnce = false
+
+    @State var launchScreenAnimate = false
+
+    @State var account: String = ""
+
     init() {
         Task {
             DFMUserUpdater()
@@ -26,147 +53,134 @@ struct DiscordForMacApp: App {
             await DFMPrivateChannelsUpdater()
             DFMPresencesUpdater()
             DFMMessageUpdater()
+            DFMLogOutUpdater()
         }
     }
-    
+
     var body: some Scene {
-        
         WindowGroup {
-            Group {
-                if let error = info.error {
-                    VStack {
-                        Image(systemName: "exclamationmark.triangle.fill")
-                            .padding(1)
-                            .scaleEffect(2)
-                        
-                        Text("There was an error loading data.")
-                            .font(.title2)
-                        
+            Div {
+                LaunchScreen {
+                    if let error = info.error {
                         Text(error.error)
-                    }
-                    .task {
-                        if error.code == .GatewayFailure {
-                            DFMInformation.shared.gateway = nil
-                        }
-                    }
-                } else {
-                    if welcomeScreenShown {
-                        if info.loadingScreen.0 {
-                            VStack {
-                                Spacer()
-                                
-                                HStack {
-                                    AppIcon()
-                                        .frame(width: 64, height: 64)
-                                        .scaledToFit()
-                                    VStack(alignment: .leading) {
-                                        Text("DiscordForMac")
-                                            .bold()
-                                            .font(.title2)
-                                        Text("by atomtables")
-                                            .fontWeight(.light)
-                                            .font(.headline)
+                    } else if info.shouldShowAccountChooser {
+                        if info.keychainItems.count > 1 {
+                            if info.shouldAddNewAccount.0 {
+                                LoginScreen(keys: $keys, animate: $launchScreenAnimate, addingNewAccount: true)
+                                    .toolbar {
+                                        Button {
+                                            info.shouldAddNewAccount = (false, nil)
+                                            info.shouldShowAccountChooser = false
+                                        } label: {
+                                            Image(systemName: "chevron.backward.circle.fill")
+                                            Text("Back")
+                                        }
                                     }
-                                        .offset(x: -5)
-                                }
-                                .offset(y: animate ? 0 : 100)
-                                .opacity(animate ? 1 : 0)
-                                .animation(.easeOut(duration: 1.0), value: animate)
-                                .onAppear {
-                                    animate = true
-                                }
-                                .padding(5)
-                                
-                                HStack {
-                                    ProgressView()
-                                    Text(info.loadingScreen.1)
-                                }
-                                .offset(y: showLoading ? 0 : 25)
-                                .opacity(showLoading ? 1 : 0)
-                                .animation(.easeOut(duration: 1.0), value: showLoading)
-                                .padding(5)
-                                .frame(height: 30)
-                                
-                                Spacer()
+                            } else {
+                                DFMAccountChooserView()
                             }
-                            .task {
-                                if welcomeScreenWasShown {
-                                    showLoading = true
-                                    DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-                                        DFMInformation.shared.gateway.start()
-                                        info.setLoadingScreen((true, "Connecting to the server"))
+                        } else if info.keychainItems.count == 0 {
+                            LoginScreen(keys: $keys, animate: $launchScreenAnimate)
+                        } else if info.keychainItems.count == 1 {
+                            if info.shouldAddNewAccount.0 {
+                                LoginScreen(keys: $keys, animate: $launchScreenAnimate, addingNewAccount: true)
+                                    .toolbar {
+                                        Button {
+                                            info.shouldAddNewAccount = (false, nil)
+                                            info.shouldShowAccountChooser = false
+                                        } label: {
+                                            Image(systemName: "chevron.backward.circle.fill")
+                                            Text("Back")
+                                        }
                                     }
-                                } else {
-                                    DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-                                        showLoading = true
-                                        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-                                            DFMInformation.shared.gateway.start()
-                                            info.setLoadingScreen((true, "Connecting to the server"))
+                            } else {
+                                Button("Login as \(info.keychainItems[0][0])") {
+                                    PrintDebug("attempting to log in")
+                                    if DFMConstants.DFMSecrets.token != "" {
+                                        info.shouldShowAccountChooser = false
+                                    } else {
+                                        getAccountToken(
+                                            from: info
+                                                .keychainItems[0][0]
+                                        )
+                                    }
+                                }
+                                .toolbar {
+                                    if DFMConstants.DFMSecrets.token != "" {
+                                        Button {
+                                            info.shouldAddNewAccount = (false, nil)
+                                            info.shouldShowAccountChooser = false
+                                        } label: {
+                                            Image(systemName: "chevron.backward.circle.fill")
+                                            Text("Back")
                                         }
                                     }
                                 }
+                                .task {
+                                    PrintDebug("It seems it's returning \(info.keychainItems)")
+                                }
+                                Button("Add another account") {
+                                    info.shouldAddNewAccount = (true, nil)
+                                    info.shouldShowAccountChooser = true
+                                }
+                                Button("Log out") {
+                                    DFMConstants.DFMSecrets.email = info.keychainItems[0][0]
+                                    NotificationCenter.default
+                                        .post(name: Notification.Name("DFMLogOutUpdate"), object: nil)
+                                }
                             }
-                        } else {
-                            ContentView()
-                                .environmentObject(info)
                         }
                     } else {
-                        VStack {
-                            Spacer()
-                            
+                        if info.loadingScreen.0 {
                             HStack {
-                                AppIcon()
-                                    .frame(width: 64, height: 64)
-                                    .scaledToFit()
-                                VStack(alignment: .leading) {
-                                    Text("DiscordForMac")
-                                        .bold()
-                                        .font(.title2)
-                                    Text("by atomtables")
-                                        .fontWeight(.light)
-                                        .font(.headline)
-                                }
-                                    .offset(x: -5)
+                                ProgressView()
+                                Text(info.loadingScreen.1)
                             }
-                            .offset(y: animate ? 0 : 100)
-                            .opacity(animate ? 1 : 0)
-                            .animation(.easeOut(duration: 1.0), value: animate)
-                            .onAppear {
-                                animate = true
-                                DispatchQueue.main.asyncAfter(deadline: .now()+1.0) {
-                                    showBeginButton = true
-                                }
-                            }
-                            .padding(5)
-                            
-                            Button {
-                                showBeginButton = false
-                                DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
-                                    welcomeScreenShown = true
-                                    welcomeScreenWasShown = true
-                                }
-                            } label: {
-                                Text("Begin")
-                            }
-                            .offset(y: showBeginButton ? 0 : 25)
-                            .opacity(showBeginButton ? 1 : 0)
-                            .animation(.easeOut(duration: 0.5), value: showBeginButton)
                             .padding(5)
                             .frame(height: 30)
-                            
-                            Spacer()
+                            .animation(.none, value: UUID())
+                        } else {
+                            ContentView()
                         }
+                    }
+                }
+                .task {
+                    if info.shouldLogOut.0 {
+                        PrintDebug("should probably log out now")
+                        NotificationCenter.default
+                            .post(name: Notification.Name("DFMLogOutUpdate"), object: nil)
+                        info.shouldLogOut.0 = false
                     }
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-#if os(macOS)
-            .background(VisualEffectView().ignoresSafeArea())
-#endif
-            .alert(isPresented: $help) {
-                Alert(title: Text("Help"), message: Text("Help Yourself."))
+            .task {
+                grantPermissionForNotifications()
+                if !ranOnce {
+                    info.keychainItems = UserDefaults.standard.object(forKey: "DFMUserArray") as? [[String]] ?? [[String]]()
+                    ranOnce = true
+                }
+                if info.keychainItems.count == 1 {
+                    DispatchQueue.main.asyncAfter(deadline: .now()+0.9) {
+                        DFMInformation.shared.loadingScreen = (true, "Waiting for authentication")
+                        DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+                            getAccountToken(
+                                from: info.keychainItems[0][0]
+                            )
+                        }
+                    }
+                } else if keys.count > 1 {
+                    showAccountChooser = true
+                } else {
+                    info.shouldShowAccountChooser = true
+                }
             }
+            .environmentObject(info)
+            #if os(macOS)
+            .background(VisualEffectView().ignoresSafeArea())
+            #endif
         }
+        .windowStyle(HiddenTitleBarWindowStyle())
         .commands {
             CommandGroup(replacing: .help) {
                 Button {
@@ -174,9 +188,44 @@ struct DiscordForMacApp: App {
                 } label: {
                     Text("Get Help")
                 }
+
             }
         }
     }
 }
 
+//        .onChange(of: controlActiveState) { new in
+//            info.isWindowFocused = new == .key
+//        }
+
+func getAccountToken(from key: String) {
+    PrintDebug("ran get account token")
+    do {
+        let token = try DFMInformation.shared.keychain.get(key)
+        if let token {
+            DFMInformation.shared.shouldShowAccountChooser = false
+            DFMConstants.DFMSecrets.token = token
+            DFMConstants.DFMSecrets.email = key
+            DFMInformation.shared.gateway.stop()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                DFMInformation.shared.gateway.start()
+            }
+            DFMInformation.shared.loadingScreen = (true, "Initialising application")
+            DFMInformation.shared.userInfo = nil
+            DFMInformation.shared.guildList = nil
+            DFMInformation.shared.error = nil
+            DFMInformation.shared.userReferences = [:]
+            DFMInformation.shared.privateChannels = []
+            DFMInformation.shared.presences = []
+            DFMInformation.shared.subscribedChannels = Set()
+            DFMInformation.shared.messages = [:]
+            DFMInformation.shared.liveMessages = [:]
+        } else {
+            throw DFMError.thrownError("value was nil")
+        }
+    } catch {
+        PrintDebug("there was an error: \(error)")
+        DFMInformation.shared.shouldShowAccountChooser = true
+    }
+}
 

@@ -59,28 +59,67 @@ struct ContentView: View {
                 }
             }
             .navigationSplitViewColumnWidth(min: 130, ideal: 215, max: 300)
-            
+            .navigationTitle("DiscordForMac")
         } content: {
-            Group {
+            Div {
                 if let selectedGuild {
-                    if selectedGuild.guild.id == 0 {
-                        DFMPrivateChannelView(selectedChannel: $selectedChannel)
-                    } else {
-                        DFMChannelListView(selectedGuild: selectedGuild, selectedChannel: $selectedChannel)
+                    VStack(alignment: .leading) {
+                        VStack(alignment: .leading) {
+                            HStack(alignment: .center) {
+                                if selectedGuild.guild.id == 0 {
+                                    Image(systemName: "person.3.fill")
+                                        .frame(width: 40, height: 40, alignment: .center)
+                                        .background(Color(#colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)))
+                                        .cornerRadius(10)
+                                        .minimumScaleFactor(0.5)
+//                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                } else if let iconURL = selectedGuild.guild.iconURL {
+                                    DFMImageView(url: iconURL)
+                                        .frame(width: 40, height: 40)
+                                        .cornerRadius(10)
+                                        .id(UUID())
+//                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                } else {
+                                    Text("\(NSRegularExpression( "(?:^|\\s)([\\P{Cc}\\P{Cs}\\P{Cn}])").matchesGroup(selectedGuild.guild.name))")
+                                        .frame(width: 40, height: 40, alignment: .center)
+                                        .background(Color(#colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)))
+                                        .cornerRadius(10)
+                                        .minimumScaleFactor(0.5)
+//                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                }
+                                Text(selectedGuild.guild.name)
+                                    .bold()
+                                    .font(.title3)
+                                    .multilineTextAlignment(.leading)
+                                    .zIndex(50)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            Divider()
+                        }
+                        .padding([.horizontal, .top])
+                        if selectedGuild.guild.id == 0 {
+                            DFMPrivateChannelView(selectedChannel: $selectedChannel)
+                                .zIndex(1)
+                        } else {
+                            DFMChannelListView(selectedGuild: selectedGuild, selectedChannel: $selectedChannel)
+                                .zIndex(1)
+                        }
                     }
-                } else {
-                    Text("\(selectedGuild?.guild.name ?? "content")")
                 }
             }
+            .padding(.bottom, -40)
+            .offset(y: -40)
             .navigationSplitViewColumnWidth(min: 130, ideal: 215, max: 300)
+            .navigationTitle(selectedGuild?.guild.name ?? "")
         } detail: {
-            Group {
+            Div {
                 if let selectedChannel {
                     DFMMessageView(selectedChannel: selectedChannel)
                 }
             }
             .navigationSplitViewColumnWidth(min: 400, ideal: 500)
-        }.navigationTitle(selectedGuild?.guild.name ?? "")
+            .navigationTitle(selectedChannel?.name ?? "")
+        }
         
     }
 }

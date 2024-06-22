@@ -12,12 +12,12 @@ struct DFMGuildMember: Codable, Hashable {
     let nick: String?
     let avatar: String?
     let roles: [String]
-    let joinedAt: String // ISO8601 timestamp
-    let premiumSince: String? // ISO8601 timestamp
+    let joinedAt: Date // ISO8601 timestamp
+    let premiumSince: Date? // ISO8601 timestamp
     let deaf: Bool
     let mute: Bool
     let flags: Int
     let pending: Bool?
     let permissions: String?
-    let communicationDisabledUntil: String? // ISO8601 timestamp
+    let communicationDisabledUntil: Date? // ISO8601 timestamp
 }
