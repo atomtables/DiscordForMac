@@ -11,7 +11,6 @@ struct DFMUserSelfView: View {
     @EnvironmentObject var info: DFMInformation
     
     @State var popover = true
-    
     var selectedGuild: Binding<DFMGuild>?
     
     var body: some View {
