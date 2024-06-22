@@ -5,6 +5,9 @@
 
 An application designed from the ground-up using SwiftUI and standard Swift libraries to reverse engineer the bloated electron-based Discord client into something a little more pleasant.
 
+### Cool Libraries I used
+Thanks to [**AnyCodable** by Flight-School](https://github.com/Flight-School/AnyCodable) and [**KeychainAccess** by kishikawakatsumi](https://github.com/kishikawakatsumi/KeychainAccess)
+
 ## So far:
 - [x] Compatibility with Discord Gateway
 - [x] Ability to open guilds
