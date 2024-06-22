@@ -1,7 +1,31 @@
 {
   "images" : [
     {
-      "filename" : "DiscordForMac-iOS.png",
+      "filename" : "DiscordForMac-iOS-Any.png",
+      "idiom" : "universal",
+      "platform" : "ios",
+      "size" : "1024x1024"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "DiscordForMac-iOS-Dark.png",
+      "idiom" : "universal",
+      "platform" : "ios",
+      "size" : "1024x1024"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "tinted"
+        }
+      ],
+      "filename" : "DiscordForMac-iOS-Tinted.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"

@@ -8,6 +8,7 @@
 import SwiftUI
 
 /// `DFMMessageView` also has the job of sending messages and verifying they were sent.
+@available(macOS 12, *)
 struct DFMMessageView: View {
     @EnvironmentObject var info: DFMInformation
     @State var messageText: String = ""
@@ -17,7 +18,10 @@ struct DFMMessageView: View {
         if let messages = info.combinedMessages[selectedChannel.id] {
             ScrollView {
                 VStack(alignment: .leading) {
-                    ForEach(messages) { message in
+                    ForEach(Array(messages.enumerated()), id: \.1.id) { (idx, message) in
+                        if idx == 0 || areSameDay(date1: messages[idx - 1].timestamp, date2: message.timestamp) {
+                            
+                        }
                         HStack(alignment: .top) {
                             if let avatarURL = message.author?.avatarURL {
                                 DFMImageView(url: avatarURL)
@@ -31,10 +35,11 @@ struct DFMMessageView: View {
                                     .fontWeight(.semibold)
                             }
                         }
+                        .transition(.move(edge: .top)) // Slide in from the bottom
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .scaleEffect(x: 1, y: -1, anchor: .center)
-                    .animation(.easeOut)
+                    .animation(.easeOut(duration: 0.5), value: UUID())  // its deprecated but i dont see another solution (or feel like finding one)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
